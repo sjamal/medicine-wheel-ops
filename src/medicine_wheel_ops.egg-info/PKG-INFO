@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: medicine-wheel-ops
+Version: 1.0.0
+Summary: A quantitative operations engine mapping Indigenous ecological stewardship onto enterprise systems.
+Author-email: Sarosh Jamal <sjamal@github.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: pandas>=2.2.0
+Requires-Dist: pydantic>=2.6.0
+Requires-Dist: gitpython>=3.1.40
+
+# Medicine Wheel Operations Engine (`medicine-wheel-ops`)
+
+An analytical implementation project translating the place-based principles of Dr. Jennifer Grenz's *Medicine Wheel for the Planet* into software engineering architectures, microservice simulations, and programmatic CI/CD governance patterns.
+
+## Framework Quadrants Covered
+- **North (Elder Wisdom):** Long-Baseline System Heritage analytics via Git history tracking.
+- **East (Deconstructing Separation):** Webwork multidimensional balanced metrics over zero-sum risk matrices.
+- **South (Active Stewardship):** Technical Debt Reciprocity gatekeeper preventing exploitative feature harvesting.
+- **West (Relational Decision-Making):** Quantifiable Algorithmic Governance design protocols.

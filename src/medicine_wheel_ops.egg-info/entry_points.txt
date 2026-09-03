@@ -1,0 +1,2 @@
+[console_scripts]
+mw-ops = medicine_wheel_ops.cli:main
