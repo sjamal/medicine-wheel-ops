@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medicine-wheel-ops"
+version = "1.0.0"
+description = "A quantitative operations engine mapping Indigenous ecological stewardship onto enterprise systems."
+readme = "README.md"
+authors = [{ name = "Sarosh Jamal", email = "sjamal@github.com" }]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "pydantic>=2.6.0",
+    "gitpython>=3.1.40"
+]
+
+[project.scripts]
+mw-ops = "medicine_wheel_ops.cli:main"
