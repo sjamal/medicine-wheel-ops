@@ -11,8 +11,16 @@ src/medicine_wheel_ops.egg-info/top_level.txt
 src/medicine_wheel_ops/engines/__init__.py
 src/medicine_wheel_ops/engines/base_engine.py
 src/medicine_wheel_ops/engines/dependency_engine.py
+src/medicine_wheel_ops/engines/evolution_engine.py
 src/medicine_wheel_ops/pipeline/__init__.py
 src/medicine_wheel_ops/pipeline/debt_broker.py
 src/medicine_wheel_ops/pipeline/webwork_assessor.py
+src/medicine_wheel_ops/storage/lineage_registry.py
+src/medicine_wheel_ops/telemetry/hydrator.py
+src/medicine_wheel_ops/telemetry/spike_detector.py
 tests/test_debt_broker.py
 tests/test_dependency_engine.py
+tests/test_evolution_engine.py
+tests/test_hydrator.py
+tests/test_lineage_registry.py
+tests/test_spike_detector.py
