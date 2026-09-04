@@ -21,3 +21,8 @@ htmlcov/
 *.json
 *.csv
 !work_items_cache.json
+
+# Volatile verification state outputs
+tests/test_history.json
+src/medicine_wheel_ops/storage/state_history.json
+sample_webhook_payload.json
