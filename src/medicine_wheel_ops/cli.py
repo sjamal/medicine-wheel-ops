@@ -10,10 +10,10 @@ from medicine_wheel_ops.telemetry.json_parser import JSONStreamParser
 from medicine_wheel_ops.telemetry.spike_detector import TelemetrySpikeDetector
 from medicine_wheel_ops.pipeline.webwork_assessor import WebworkScore
 from medicine_wheel_ops.pipeline.alert_classifier import AlertClassifier
-from medicine_wheel_ops.storage.state_logger import CyclicalStateLogger
+from medicine_wheel_ops.storage.lineage_buffer import HistoricalLineageBuffer
 
 def handle_scan(args):
-    """Executes an ingestion scan, updates ancestral state history, and runs alert classification."""
+    """Executes an ingestion scan, updates legacy history, and runs alert classification."""
     print(f"=== Initiating Ingestion Scan on System Target: {args.system} ===")
     
     # Decoupling Ingestion: Route to File Stream Parser if target file path provided
@@ -30,8 +30,8 @@ def handle_scan(args):
             hydrator = SyntheticHydrator()
         metrics = hydrator.fetch_current_telemetry(args.system)
     
-    # Ancestral Memory Mapping: Retrieve past execution context paths from local storage disk
-    logger = CyclicalStateLogger()
+    # Historical Lineage Mapping: Retrieve past execution context paths from local storage disk
+    logger = HistoricalLineageBuffer()
     window_history = logger.append_state(args.system, metrics.compute_cycles)
     
     detector = TelemetrySpikeDetector(deviation_threshold=1.8)
@@ -55,8 +55,8 @@ def handle_scan(args):
     alert = classifier.classify_event(spike_result, footprint)
     
     print(f"\n[Telemetry] CPU Cycles: {metrics.compute_cycles} | RAM: {metrics.memory_footprint}MB")
-    print(f"[Ancestral History] Sliding Window Active Count: {len(window_history)} frames")
-    print(f"[Analysis]  Spike Verdict: {spike_result.verdict} (Variance Ratio: {spike_result.variance_ratio})")
+    print(f"[Historical Lineage] Sliding Window Active Count: {len(window_history)} frames")
+    print(f"[Analysis]  Spike Verdict: {spike_result.get('verdict', spike_result.verdict if hasattr(spike_result, 'verdict') else 'UNKNOWN')} (Variance Ratio: {spike_result.variance_ratio})")
     print(f"----------------------------------------------------------------------")
     print(f"[ALARM TRIGGER] Classification: {alert.classification}")
     print(f"[ALARM TRIGGER] Urgency Level:  {alert.urgency}")

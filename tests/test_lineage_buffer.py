@@ -1,13 +1,13 @@
 """
-Unit verification suite verifying cyclical log window rotation and data preservation bounds.
+Unit verification suite verifying cyclical lineage window rotation and data preservation bounds.
 """
 
 import os
-from medicine_wheel_ops.storage.state_logger import CyclicalStateLogger
+from medicine_wheel_ops.storage.lineage_buffer import HistoricalLineageBuffer
 
-def test_cyclical_state_truncation():
+def test_cyclical_lineage_truncation():
     test_log = "tests/test_history.json"
-    logger = CyclicalStateLogger(file_path=test_log, max_window=3)
+    logger = HistoricalLineageBuffer(file_path=test_log, max_window=3)
     
     # Append values past max threshold window parameters
     logger.append_state("cluster-x", 10.0)
@@ -17,7 +17,7 @@ def test_cyclical_state_truncation():
     
     # Assert sliding limit strictly capped at maximum window width dimension
     assert len(window) == 3
-    # 10.0 is cleanly dropped from history loop, tracking elements 20, 30, and 40
+    # 10.0 is cleanly dropped from the history loop, tracking elements 20, 30, and 40
     assert window == [20.0, 30.0, 40.0]
     
     if os.path.exists(test_log):

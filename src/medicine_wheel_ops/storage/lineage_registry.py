@@ -1,18 +1,20 @@
 """
 Data persistence registry tracking system architectural lineage and historical profiles.
+Establishes relational dependency mapping layers across system nodes.
 """
 
 import json
 import os
-from typing import Dict, Any, Optional
-from pydantic import BaseModel
+from typing import Dict, Any, Optional, List
+from pydantic import BaseModel, Field
 
 class SystemProfile(BaseModel):
-    """Schema boundary defining place-based system lineage attributes."""
+    """Schema boundary defining place-based system lineage and relational network links."""
     system_id: str
     historical_baseline_years: int
     criticality_tier: int
     legacy_dependencies_count: int
+    dependencies: List[str] = Field(default_factory=list, description="Downstream relational system connections.")
     operational_history_notes: str
 
 class LineageRegistry:

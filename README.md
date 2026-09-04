@@ -1,75 +1,48 @@
 # Medicine Wheel Operations Engine (`medicine-wheel-ops`)
 
-An analytical implementation project translating the place-based principles of Dr. Jennifer Grenz's *Medicine Wheel for the Planet* into software engineering architectures, microservice simulations, and programmatic CI/CD governance patterns.
+## Educational Portfolio Project Statement
+This repository functions strictly as a conceptual, quantitative computer science simulation and software engineering learning experiment. The architecture models structural operations frameworks, multi-agent dynamic simulations, and automated compliance pipelines.
 
-## Framework Quadrants Covered
-- **North (Elder Wisdom):** Long-Baseline System Heritage analytics via Git history tracking.
-- **East (Deconstructing Separation):** Webwork multidimensional balanced metrics over zero-sum risk matrices.
-- **South (Active Stewardship):** Technical Debt Reciprocity gatekeeper preventing exploitative feature harvesting.
-- **West (Relational Decision-Making):** Quantifiable Algorithmic Governance design protocols.
+## Framework Inception and Academic Influence
+The technical paradigms, balance calculations, and continuous stewardship metrics codified within this repository are explicitly inspired by and adapted from the place-based Indigenous ecological methodologies articulated by Dr. Jennifer Grenz in her book, *Medicine Wheel for the Planet*. This project translates her environmental ecosystem concepts—such as Relationality, Reciprocity, and critiques of static equilibrium states—into systemic constraints for enterprise infrastructure workflows. 
 
-## Verification & Execution Examples
+To maintain strict respect for the original text and protect against cultural dilution, the terminology has been deliberately mapped to established IT infrastructure concepts (e.g., re-allocating descriptive labels like "Ancestral Memory" to "Historical Lineage Baselines").
 
-### 1. Programmatic Calculation of Reciprocity Scores
-To run a sustainability calculation on an active workload matrix directly in your python shell:
-```python
-from medicine_wheel_ops.engines.base_engine import SystemMetrics
-from medicine_wheel_ops.engines.dependency_engine import CoDependencyEngine
+## Complete Framework Architecture Flow Map
 
-# Establish metrics footprint
-metrics = SystemMetrics(
-    compute_cycles=120.0, 
-    memory_footprint=64.0, 
-    downstream_optimizations=150.0, 
-    shared_resource_release=40.0
-)
-
-engine = CoDependencyEngine(min_threshold=0.75)
-score = engine.calculate_sustainability(metrics)
-print(f"Reciprocity Index: {score}")  # Returns float ratio
-print(f"System Balance: {engine.evaluate_node_adaptability(score)}")
+```text
+               [ NORTH: HISTORICAL LINEAGE ]
+               • LineageRegistry / Git Churn Analytics
+               • System Relational Dependency Map Trees
+                                │
+                                ▼
+     [ WEST: GOVERNANCE ] ──────┼──────► [ EAST: WEBWORK VARIANCE ]
+     • Structural Constraints   │        • Multi-Agent Ingestion Scans
+       Pipeline Build Gates     │        • Slide-Window Rate Anomaly Checks
+                                │
+                                ▼
+               [ SOUTH: CONTINUOUS TENDING ]
+               • Technical Debt Reciprocity Broker
+               • Tending Ratios (Pruning vs Churn Extraction)
 ```
 
-### 2. Simulating Multi-Agent Ecosystem Adaptability
-To execute a self-healing loop simulation under sudden load anomalies:
-```python
-from medicine_wheel_ops.engines.evolution_engine import EcosystemSimulation
+## Structure Strategy Reference
 
-# Instantiate cluster nodes
-sim = EcosystemSimulation(agent_ids=["auth-service", "data-pipeline"])
+### 1. Historical Lineage & Baselines (North)
+Tracks deep platform records via the `LineageRegistry` and maps sliding window history context using the `HistoricalLineageBuffer`. This prevents development workflows from making decisions based on short-sighted or ahistorical greenfield biases.
 
-# Inject massive stress exceeding load limits to trigger adaptation bounds
-status = sim.inject_systemic_stress("auth-service", 150.0)
-print(f"Post-Stress Status: {status}") # Returns 'ADAPTED_RECOVERY' instead of crashing
-```
+### 2. Webwork Interdependence & Variance (East)
+Monitors how runtime spikes interact with human operational health thresholds (`--burnout`). The `TelemetrySpikeDetector` checks the rate of variance, and the `AlertClassifier` routes unified alarms to prevent teams from being unsustainably mined for short-term transaction throughput.
 
-### 3. Running Webwork Multidimensional Balance Checks
-To execute a variance assessment verifying operational burnout thresholds:
-```python
-from medicine_wheel_ops.pipeline.webwork_assessor import WebworkAssessor, WebworkScore
+### 3. Continuous Tending (South)
+Enforces a strict mathematical equilibrium during development. The pipeline calculates a `Tending Ratio` via the `DebtBroker`, blocking builds if features are extracted without a reciprocal contribution to refactoring and platform health.
 
-assessor = WebworkAssessor()
-score = WebworkScore(
-    system_integrity=4.5,
-    operational_burnout=2.1,  # Safe toil baseline
-    resource_overhead=1.5,
-    knowledge_equity=4.0
-)
+### 4. Relational Governance (West)
+Defines design review pipelines via `WebworkAssessor` to verify code changes maintain ecological balance across the environment before deployment.
 
-balanced = assessor.is_balanced(score, max_variance=1.0)
-print(f"Deployment Alignment Verification: {balanced}") # Returns True
-```
-
-### 4. Pluggable Telemetry Stream Hydration
-To switch between synthetic generation streams and production APIs:
-```python
-from medicine_wheel_ops.telemetry.hydrator import SyntheticHydrator, RealAPIHttpSource
-
-# Option A: Run via Synthetic Noise Hydrator
-stream_source = SyntheticHydrator()
-print(stream_source.fetch_current_telemetry("cluster-a"))
-
-# Option B: Drop-in live production HTTP API source seamlessly
-production_source = RealAPIHttpSource(api_endpoint="https://api.internal", bearer_token="xyz")
-print(production_source.fetch_current_telemetry("cluster-a"))
+## Local Operational Validation Guidelines
+To execute the automated verification suite, run the testing engine out of your terminal:
+```bash
+# Execute the complete validation matrix (11 passed tests)
+pytest -v
 ```

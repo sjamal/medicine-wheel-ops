@@ -1,5 +1,5 @@
 """
-Unit verification suite checking system lineage tracking and data persistence layers.
+Unit verification suite checking system lineage tracking and relational dependency data layers.
 """
 
 import os
@@ -10,20 +10,20 @@ def test_profile_registration_lifecycle():
     registry = LineageRegistry(storage_path=test_db)
     
     profile = SystemProfile(
-        system_id="ngsis-test-cluster",
+        system_id="api-gateway-node",
         historical_baseline_years=5,
-        criticality_tier=0,
-        legacy_dependencies_count=14,
-        operational_history_notes="Core database layer with deep legacy dependency matrices."
+        criticality_tier=1,
+        legacy_dependencies_count=2,
+        dependencies=["auth-service-pod", "backend-db-cluster"],
+        operational_history_notes="Edge routing layer with mapped downstream cluster nodes."
     )
     
     registry.register_profile(profile)
-    retrieved = registry.get_profile("ngsis-test-cluster")
+    retrieved = registry.get_profile("api-gateway-node")
     
     assert retrieved is not None
-    assert retrieved["criticality_tier"] == 0
-    assert retrieved["legacy_dependencies_count"] == 14
+    assert retrieved["dependencies"] == ["auth-service-pod", "backend-db-cluster"]
+    assert retrieved["legacy_dependencies_count"] == 2
     
-    # Cleanup volatile tracking artifacts
     if os.path.exists(test_db):
         os.remove(test_db)
