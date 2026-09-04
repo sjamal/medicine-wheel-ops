@@ -30,3 +30,7 @@ addopts = "-ra -q"
 testpaths = ["tests"]
 pythonpath = ["src"]
 
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["medicine_wheel_ops*"]
